@@ -168,7 +168,10 @@ extension ALBaseOverlayController {
 // MARK: - UIGestureRecognizerDelegate
 extension ALBaseOverlayController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+        // Don't recognize simultaenously because it messes up with DatePicker gesture.
+        // Perhaps we should enable simultaneous recognition for only some gestures (eg. scroll view's pan?)
+        return false
+        //return true
     }
     
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
